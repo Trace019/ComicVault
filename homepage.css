@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Fascinate&family=Limelight&family=Titan+One&family=Trade+Winds&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --background-color: #0b0a0c;
+    --border-color: #424242;
+    --text-color: #e7e5e5;
+    --accent: #941e13;
+    --highlight-color: #ff7057;
+
+}
+
+.light-theme {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --link-color: #1a0dab;
+  --button-background: #f0f0f0;
+  --button-text-color: #000000;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Alan Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: var(--accent);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    display: block;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 0;
+    font-family: "Limelight", cursive;
+    font-size: 1.5rem;
+}
+
+.nav-list {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 2.2rem;
+    padding: 0;
+    margin: 0;
+    margin-right: 2rem;
+    align-items: center;
+}
+
+.nav-list li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-link {
+    display: block;
+    margin: 0;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-right: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.icons a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin: 0;
+}
+
+#active {
+    border-bottom: 2px solid var(--highlight-color);
+}
