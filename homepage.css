@@ -1,14 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Fascinate&family=Limelight&family=Titan+One&family=Trade+Winds&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*Fonts Used:
+Alan Sans
+Fascinate
+Limelight
+Titan One
+Trade Winds
+Volkhov
+Outfit
+*/
 
 :root {
     --background-color: #0b0a0c;
+    --secondary-color: #2b2b2b;
     --border-color: #424242;
     --text-color: #e7e5e5;
     --accent: #941e13;
     --highlight-color: #ff7057;
-
+    --card-color: #161519;
+    font-family: 'Fa';
 }
-
+/*
 .light-theme {
   --background-color: #ffffff;
   --text-color: #000000;
@@ -16,11 +29,12 @@
   --button-background: #f0f0f0;
   --button-text-color: #000000;
 }
+*/
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: 'Alan Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -31,6 +45,10 @@ body {
     color: var(--text-color);
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .logo {
@@ -65,6 +83,11 @@ body {
     margin: 0;
 }
 
+.navbar-link:hover {
+    transition: .15s ease-out;
+    color: var(--highlight-color);
+}
+
 .icons {
     display: flex;
     align-items: center;
@@ -83,4 +106,108 @@ body {
 
 #active {
     border-bottom: 2px solid var(--highlight-color);
+}
+
+
+.main-section .banner img {
+    width: 100%;
+    max-height: 50%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+
+/*! Manga Section */
+
+.content-container {
+    margin: 5rem;
+    background-color: var(--secondary-color);
+    width: auto;
+    border-radius: 1rem;
+}
+
+.hot-releases h2 {
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-bottom: .25rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Oswald';
+    text-transform: uppercase;
+}
+
+.hot-releases h2::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: var(--text-color);
+}
+
+
+.content-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    padding: 0 2rem 2rem 2rem;
+    justify-content: flex-start;
+}
+
+.manga-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-color);
+    width: 15rem;
+    border-top-left-radius: 2rem;
+}
+
+.manga-card img {
+    width: 12.5rem;
+    height: 17.5rem;
+    object-fit: cover;
+    border-top-left-radius: 2rem;
+    display: flex;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.card-header {
+    padding: 0rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+.card-header .manga-title {
+    text-align: left;
+    font-size: 1.1rem;
+    padding: 0 0;
+}
+
+.card-header .mangaka {
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--highlight-color);
+    margin: 0rem;
+}
+
+.card-subheader {
+    color: red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-button {
+    background-color: var(--highlight-color);
+    border: none;
+    color: var(--text-color);
+    padding: 0.5rem 0;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: .15s ease-out;
+    &:hover {
+        background-color: var(--accent);
+    }
 }
