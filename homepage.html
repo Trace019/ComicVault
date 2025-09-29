@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/489c5b8ea3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="homepage.css">
     <script src="/hompage.js" defer></script>
+    <script src="/product.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -17,23 +18,17 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="#home" id="active" class="navbar-link">
+                <a href="homepage.html" id="active" class="navbar-link">
                     <span class="link-text">Home</span>
                 </a>
             </li>
             <li>
-                <a href="#home" class="navbar-link">
+                <a href="vault.html" class="navbar-link">
                     <span class="link-text">Wishlist</span>
                 </a>
             </li>
             <li>
-                <a href="#home" class="navbar-link">
-                    <span class="link-text">Popular</span>
-                </a>
-            </li>
-            
-            <li>
-                <a href="#home" class="navbar-link">
+                <a href="browse.html" class="navbar-link">
                     <span class="link-text">Browse</span>
                 </a>
             </li>
@@ -43,6 +38,9 @@
                     <i class="fa-solid fa-gear"></i>
             </a>
             <a href="#home" class="navbar-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="#home" class="navbar-link">
                     <i class="fa-solid fa-circle-user"></i>
             </a>
         </div>
@@ -50,19 +48,24 @@
     </nav>
 
     <section class="main-section">
-        <div class="banner">
-            <img src="/images/jjk-banner.jpg" alt="banner">
-            <button class="test">View</button>
-        </div>
+        <article class="slider">
+            <div class="banner">
+                <img class="slide" src="/images/jjk-banner.jpg" alt="banner">
+                <img class="slide" src="/images/haikyuu-banner.png" alt="banner">
+                <img class="slide" src="/images/aot-banner.png" alt="banner">
+            </div>
+            <button class="prev" onclick="prevSlide()"><i class="fa-solid fa-left-long"></i></button>
+            <button class="next" onclick="nextSlide()"><i class="fa-solid fa-right-long"></i></button>
+        </article>
     </section>
 
     <section class="content-container">
 
         <article class="hot-releases">
             <h2>Hot Releases</h2>
-            <div class="content-cards">
+            <div class="content-cards" id="hotManga">
 
-                <div class="manga-card">
+                <!--<div class="manga-card">
                     <img src="/images/frieren/frieren-v14.png" alt="cover">
                     <div class="card-header">
                         <h3 class="manga-title">Frieren: Journey Beyond End</h3>
@@ -79,7 +82,7 @@
                         <button class="view-button">View Now</button>
                     </div>
                 </div>
-                <div class="manga-card">
+                <!--<div class="manga-card">
                     <img src="/images/jjk/jjk-v30.png" alt="cover">
                     <div class="card-header">
                         <h3 class="manga-title">Jujutsu Kaisen</h3>
@@ -95,7 +98,7 @@
                         <button class="view-button" onclick="redirectToInfo()">View Now</button>
                     </div>
                 </div>
-                <div class="manga-card">
+                <div clss="manga-card">
                     <img src="/images/kaoruhana/kaoruhana-v20.png" alt="cover">
                     <div class="card-header">
                         <h3 class="manga-title">The Fragrant Flower Blooms With Dignity</h3>
@@ -128,7 +131,7 @@
                         </div>
                         <button class="view-button">View Now</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </article>
