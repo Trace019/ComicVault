@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1
+        ,
+        "name": "Jujutsu Kaisen",
+        "price": 599,
+        "sypnosis": "The story follows high school student Yuji Itadori as he joins a secret organization of Jujutsu Sorcerers to eliminate a powerful Curse named Ryomen Sukuna, of whom Yuji becomes the host.",
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/jjk/jjk.v1",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 30,
+                "image": "images/jjk/jjk.v30",
+                "language": ["Japanese"]
+            }
+        ]
+    }
+]
