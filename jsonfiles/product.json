@@ -1,0 +1,168 @@
+[
+    {
+        "id": 1
+        ,
+        "name": "Jujutsu Kaisen",
+        "price": 599,
+        "author": "Gege Akutami",
+        "sypnosis": "The story follows high school student Yuji Itadori as he joins a secret organization of Jujutsu Sorcerers to eliminate a powerful Curse named Ryomen Sukuna, of whom Yuji becomes the host.",
+        "tag01": "Action",
+        "tag02": "Dark Fantasy",
+        "tag03": "•",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/jjk/jjk-v1.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 19,
+                "image": "images/jjk/jjk-v19.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 26,
+                "image": "images/jjk/jjk-v26.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 27,
+                "image": "images/jjk/jjk-v27.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 28,
+                "image": "images/jjk/jjk-v28.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 29,
+                "image": "images/jjk/jjk-v29.png",
+                "language": ["Japanese"]
+            },
+            {
+                "volNum": 30,
+                "image": "images/jjk/jjk-v30.png",
+                "language": ["Japanese"]
+            }
+        ]
+    },
+    {
+        "id": 2
+        ,
+        "name": "Frieren: Journey Beyond End",
+        "price": 599,
+        "author": "Kanehito Yamada",
+        "sypnosis": "The demon king has been defeated, and the victorious hero party returns home before disbanding. The four—mage Frieren, hero Himmel, priest Heiter, and warrior Eisen—reminisce about their decade-long journey as the moment to bid each other farewell arrives. But the passing of time is different for elves, thus Frieren witnesses her companions slowly pass away one by one.",
+        "tag01": "Action",
+        "tag02": "Fantasy",
+        "tag03": "•",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/frieren/frieren-v1.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 14,
+                "image": "images/frieren/frieren-v14.png",
+                "language": ["Japanese"]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "The Fragrant Flower Blooms With Dignity",
+        "price": 599,
+        "author": "Saka Mikami",
+        "sypnosis": "In a certain place, there are two neighboring high schools. Chidori High School, a bottom-feeder boys' school where idiots gather, and Kikyo Girls' School, a well-established girls' school. Rintaro Tsumugi, a strong and quiet second year student at Chidori High School, meets Kaoruko Wakuri, a girl who comes as a customer while helping out at his family's cake shop. Rintaro feels comfortable spending time with Kaoruko, but she is a student at Kikyo Girls, a neighboring school that thoroughly dislikes Chidori High. This is the story of two people who are so close and yet so far apart.",
+        "tag01": "Romance",
+        "tag02": "Slice Of Life",
+        "tag03": "•",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/kaoruhana/kaoruhana-v1.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 20,
+                "image": "images/kaoruhana/kaoruhana-v20.png",
+                "language": ["Japanese"]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Dandadan",
+        "price": 599,
+        "author": "Yukinobu Tatsu",
+        "sypnosis": "Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what they'll believe in and what they won't. Their quest to prove each other wrong leads them down a path of secret crushes and paranormal battles they'll have to participate in to believe!.",
+        "tag01": "Adventure",
+        "tag02": "Drama",
+        "tag03": "Romance",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/dandadan/dandadan-v1.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 20,
+                "image": "images/dandadan/dandadan-v20.png",
+                "language": ["Japanese"]
+            }
+        ]
+    },    
+    {
+        "id": 5,
+        "name": "Welcom To Demon School Iruma-kun!",
+        "price": 599,
+        "author": "Nishi Osamu",
+        "sypnosis": "Hopeless pushover Iruma Suzuki has found himself in a devil of a predicament... His trashy parents have sold off his soul, and he now has to live and attend school in the Netherworld. But with his unique survival skills and doting demon grandfather's support, Iruma will surely make it through this hellish experience. He'll just need to subjugate rival classmates, summon familiars, and more, all while never revealing that he's human... Easy as aleph, bet, gimel, right?",
+        "tag01": "Adventure",
+        "tag02": "Drama",
+        "tag03": "Romance",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/iruma/iruma-v1.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 44,
+                "image": "images/iruma/iruma-v44.png",
+                "language": ["Japanese"]
+            }
+        ]
+    },    
+    {
+        "id": 6,
+        "name": "Haikyuu!",
+        "price": 599,
+        "author": "Furudate Haruichi",
+        "sypnosis": "Shoyo Hinata is out to prove that in volleyball you don't need to be tall to fly! Ever since he saw the legendary player known as “the Little Giant” compete at the national volleyball finals, Shoyo Hinata has been aiming to be the best volleyball player ever! Who says you need to be tall to play volleyball when you can jump higher than anyone else?",
+        "tag01": "Sports",
+        "tag02": "Slice Of Life",
+        "tag03": "School Life",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/haikyuu/haikyuu-v1.png",
+                "language": ["English", "Japanese"]
+            },
+            {
+                "volNum": 45,
+                "image": "images/haikyuu/haikyuu-final.png",
+                "language": ["English", "Japanese"]
+            }
+        ]
+    }
+
+]
