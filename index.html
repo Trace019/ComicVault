@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/489c5b8ea3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homepage.css">
+    <script src="/homepage.js" defer></script>
+    <script src="/product.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            Comic Vault
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="homepage.html" id="active" class="navbar-link">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="vault.html" class="navbar-link">
+                    <span class="link-text">Wishlist</span>
+                </a>
+            </li>
+            <li>
+                <a href="browse.html" class="navbar-link">
+                    <span class="link-text">Browse</span>
+                </a>
+            </li>
+        </ul>
+        <div class="icons">
+            <a href="#home" class="navbar-link">
+                    <i class="fa-solid fa-gear"></i>
+            </a>
+            <a href="#home" class="navbar-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="#home" class="navbar-link">
+                    <i class="fa-solid fa-circle-user"></i>
+            </a>
+        </div>
+
+    </nav>
+
+    <section class="main-section">
+        <article class="slider">
+            <div class="banner">
+                <img class="slide" src="images/jjk-banner.jpg" alt="banner">
+                <img class="slide" src="images/haikyuu-banner.png" alt="banner">
+                <img class="slide" src="images/aot-banner.png" alt="banner">
+            </div>
+            <button class="prev" onclick="prevSlide()"><i class="fa-solid fa-left-long"></i></button>
+            <button class="next" onclick="nextSlide()"><i class="fa-solid fa-right-long"></i></button>
+        </article>
+    </section>
+
+    <section class="content-container">
+
+        <article class="hot-releases">
+            <h2>Hot Releases</h2>
+            <div class="content-cards" id="hotManga">
+
+                <!--<div class="manga-card">
+                    <img src="/images/frieren/frieren-v14.png" alt="cover">
+                    <div class="card-header">
+                        <h3 class="manga-title">Frieren: Journey Beyond End</h3>
+                        <p class="mangaka">Kanehito Yamada</p>
+                        <div class="tags">
+                            <p class="indv-tag">Fantasy</p>
+                            <p class="indv-tag">Action</p>
+                            <p class="indv-tag">•</p>
+                        </div>
+                        <div class="card-subheader">
+                            <p><i class="fa-solid fa-star"></i> 5.00</p>
+                            <p>Vol 14</p>
+                        </div>
+                        <button class="view-button">View Now</button>
+                    </div>
+                </div>
+                <!--<div class="manga-card">
+                    <img src="/images/jjk/jjk-v30.png" alt="cover">
+                    <div class="card-header">
+                        <h3 class="manga-title">Jujutsu Kaisen</h3>
+                        <p class="mangaka">Gege Akutami</p>
+                        <div class="tags">
+                            <p class="indv-tag">Supernatural</p>
+                            <p class="indv-tag">Dark Fantasy</p>
+                        </div>
+                        <div class="card-subheader">
+                            <p><i class="fa-solid fa-star"></i> 5.00</p>
+                            <p>Vol 30</p>
+                        </div>
+                        <button class="view-button" onclick="redirectToInfo()">View Now</button>
+                    </div>
+                </div>
+                <div clss="manga-card">
+                    <img src="/images/kaoruhana/kaoruhana-v20.png" alt="cover">
+                    <div class="card-header">
+                        <h3 class="manga-title">The Fragrant Flower Blooms With Dignity</h3>
+                        <p class="mangaka">Saka Mikami</p>
+                        <div class="tags">
+                            <p class="indv-tag">Romance</p>
+                            <p class="indv-tag">Slice of Life</p>
+                            <p class="indv-tag">•</p>
+                        </div>
+                        <div class="card-subheader">
+                            <p><i class="fa-solid fa-star"></i> 5.00</p>
+                            <p>Vol 20</p>
+                        </div>
+                        <button class="view-button">View Now</button>
+                    </div>
+                </div>
+                <div class="manga-card">
+                    <img src="/images/dandadan/ddd-v20.png" alt="cover">
+                    <div class="card-header">
+                        <h3 class="manga-title">Dandadan</h3>
+                        <p class="mangaka">Yukinobu Tatsu</p>
+                        <div class="tags">
+                            <p class="indv-tag">RomCom</p>
+                            <p class="indv-tag">Action</p>
+                            <p class="indv-tag">Adventure</p>
+                        </div>
+                        <div class="card-subheader">
+                            <p><i class="fa-solid fa-star"></i> 5.00</p>
+                            <p>Vol 20</p>
+                        </div>
+                        <button class="view-button">View Now</button>
+                    </div>
+                </div> -->
+
+            </div>
+        </article>
+
+    </section>
+    <script src="homepage.js" defer></script>
+    <script src="product.js" defer></script>
+</body>
+</html>
