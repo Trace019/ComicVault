@@ -15,6 +15,7 @@
     height: 550px;
     object-fit: cover;
     margin: 0 auto;
+    box-shadow: 8px 8px 0px var(--highlight-color);
 }
 
 .product-detail .product-tile {
@@ -26,6 +27,7 @@
 
 .product-detail .rating i{
     color: var(--highlight-color);
+    margin-bottom: 1.3rem;
 }
 
 .product-detail .product-price {
@@ -33,6 +35,15 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin: 1.3rem 0;
+}
+
+.product-detail .wishlist-wrapper {
+    cursor: pointer;
+    transition: .2s ease-out;
+    &:hover {
+        color: var(--highlight-color);
+        font-weight: 700;
+    }
 }
 
 .product-detail :is(.language-selection, .volume-selection) {
@@ -57,6 +68,8 @@
     transition: .1s ease-out;
     &:hover {
         background-color: var(--highlight-color);
+        color: var(--text-color);
+        font-weight: 700;
     }
 }
 
@@ -70,6 +83,8 @@
     transition: .1s ease-out;
     &:hover {
         background-color: var(--highlight-color);
+        color: var(--text-color);
+        font-weight: 700;
     }
 }
 
@@ -85,6 +100,10 @@
     color: var(--alt-text-color);
     cursor: pointer;
     margin-bottom: 1.25rem;
+    &:hover {
+        background-color: var(--highlight-color);
+        color: var(--text-color);
+    }
 }
 
 .product-detail .product-policy {

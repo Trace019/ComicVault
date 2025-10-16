@@ -264,7 +264,7 @@ body {
 
 .tags .indv-tag {
     background-color: var(--border-color);
-    padding: 2px 4px;
+    padding: 3px 6px;
     font-family: 'Fredoka';
     font-size: .65rem;
 }
@@ -307,4 +307,5 @@ body {
         background-color: var(--highlight-color);
         color: var(--alt-text-color);
     }
+    
 }

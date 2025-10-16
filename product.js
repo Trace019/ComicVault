@@ -136,3 +136,10 @@ function backToRecent() {
     history.back();
 }
 
+const addWish = document.getElementById("addWish");
+if (addWish) {
+    addWish.addEventListener("click", () => {
+        addWish.classList.replace("fa-regular", "fa-solid");
+        alert("Added to Wishlist!");
+    });
+}
