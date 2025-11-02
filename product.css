@@ -37,12 +37,16 @@
     margin: 1.3rem 0;
 }
 
-.product-detail .wishlist-wrapper {
-    cursor: pointer;
-    transition: .2s ease-out;
+.product-detail .wishlist-wrapper button {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    transition: .15s ease-out;
+    font-size: 1.2rem;
     &:hover {
         color: var(--highlight-color);
-        font-weight: 700;
+        cursor: pointer;
+        
     }
 }
 

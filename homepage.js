@@ -1,3 +1,8 @@
+
+// =========================
+// todo explain this shit
+// =========================
+
 const banner = document.querySelector(".banner");
 let slides = document.querySelectorAll(".banner .slide");
 

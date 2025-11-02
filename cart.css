@@ -1,0 +1,129 @@
+.cart-container {
+    padding: 2rem;
+}
+.cart-header, .cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-header {
+    font-weight: bold;
+    padding: 0.7rem 0;
+}
+
+.cart-items {
+    max-height: 400px; /* adjust based on your layout */
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    scroll-behavior: smooth;
+}
+
+.cart-items::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 4px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+.cart-item {
+    padding: 1rem 0;
+}
+
+.cart-item .product {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+}
+
+.cart-item .product img {
+    width: 80px;
+    flex-shrink: 0;
+    margin-left: 0;
+}
+
+.cart-item .item-data p {
+    margin: 0;
+}
+
+.cart-item .language-volnum-box {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.cart-item .language-volnum-box :is(.lang, .volno) {
+    background-color: var(--accent);
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+
+.cart-item :is(.price, .quantity, .total-price) {
+    flex: 1;
+    text-align: center;
+}
+
+.cart-item .quantity input {
+    width: 50px;
+    padding: .3rem;
+    outline: none;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.cart-item .remove-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+    border: none;
+    background: transparent;
+    background-color: red;
+    padding: .3rem .5rem;
+    width: 2rem;
+    color: var(--alt-text-color);
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.cart-total {
+    width: 25rem;
+    margin: 3.1rem 0 0 auto;
+}
+
+.cart-total h3 {
+    margin-bottom: 1rem solid var(--border-color);
+}
+
+.cart-total p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-total p:not(:last-of-type) {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+}
+
+.cart-total p:last-of-type {
+    font-weight: 700;
+}

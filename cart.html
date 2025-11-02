@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/489c5b8ea3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            Comic Vault
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="homepage.html" class="navbar-link">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="vault.html" class="navbar-link">
+                    <span class="link-text">Wishlist</span>
+                </a>
+            </li>
+            <li>
+                <a href="browse.html" class="navbar-link">
+                    <span class="link-text">Browse</span>
+                </a>
+            </li>
+        </ul>
+        <div class="icons">
+            <a href="settings.html" class="navbar-link">
+                    <i class="fa-solid fa-gear"></i>
+            </a>
+            <a href="cart.html" class="navbar-link" id="active-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="account.html" class="navbar-link">
+                    <i class="fa-solid fa-circle-user"></i>
+            </a>
+        </div>
+    </nav>
+
+    <section class="cart-container">
+        <div class="cart-header">
+            <span>Product</span>
+            <span>Price</span>
+            <span>Quantity</span>
+            <span>Total</span>
+            <span>Remove</span>
+        </div>
+
+        <div class="cart-items">
+            <!-- <div class="cart-item">
+                <div class="product">
+                    <img src="/images/frieren/frieren-v1.png">
+                    <div class="item-data">
+                        <p>Frieren: Beyond Journey's End</p>
+                        <div class="language-volnum-box">
+                            <span class="lang">English</span>
+                            <span class="volno">Volume <span class="numS">1</span></span>
+                        </div>
+                    </div>
+                </div>
+                <span class="price">P599</span>
+                <div class="quantity">
+                    <input type="number" value="1" min="1">
+                </div>
+
+                <span class="total-price">P599</span>
+                <button class="remove-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div> -->
+        </div>
+        <div class="cart-total">
+            <h3>Total:</h3>
+            <p>
+                SubTotal:
+                <span class="subtotal">₱0</span>
+            </p>
+            <p>Delivery Fee: <span class="span">₱50.00</span></p>
+            <p>Grand Total: <span class="grand-total">₱0</span></p>
+            <button class="btn-cart">Proceed to Checkout</button>
+        </div>
+    </section>
+    
+    <script src="homepage.js" defer></script>
+    <script src="product.js" defer></script>
+</body>
+</html>

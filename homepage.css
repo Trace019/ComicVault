@@ -18,6 +18,7 @@ Outfit
     --alt-text-color: #0c0c0e;
     --accent: #c12120;
     --highlight-color: #ff7057;
+    --highlight-color2: #ffa357;
     --card-color: #161519;
     --button-color: #e4e4e4;
 }
@@ -105,7 +106,11 @@ body {
 }
 
 #active {
-    border-bottom: 2px solid var(--highlight-color);
+    border-bottom: 2px solid var(--highlight-color2);
+}
+
+#active-icon {
+    color: var(--highlight-color2);
 }
 
 
@@ -308,4 +313,25 @@ body {
         color: var(--alt-text-color);
     }
     
+}
+
+.toast-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  background: var(--accent);
+  color: white;
+  padding: 3rem 4rem;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.toast-message.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }

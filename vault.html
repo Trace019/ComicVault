@@ -7,7 +7,9 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/489c5b8ea3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="homepage.css">
-    <script src="/hompage.js" defer></script>
+    <link rel="stylesheet" href="vault.css">
+    <script src="homepage.js" defer></script>
+    <script src="product.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -48,26 +50,35 @@
         </div>
 
     </nav>
-    <article class="upper-title">
-        <i class="fa-solid fa-vault"></i>
-        <h1>My Vault</h1>
-    </article>
-    <section class="vault-detail">
-        <div class="sidebar">
-            <h2>Options</h2>
-            <p class="clear-vault">Clear Vault</p>
-        </div>
-        <div class="vault-items">
-            <div class="vault-info">
-                <tr class="upper">
-                    <th>Manga</th>
-                    <th>Language</th>
-                    <th>Volume No.</th>
-                    <th></th>
-                    <th></th>
-                </tr>
+    <main class="vault-layout">
+        <article class="upper-title">
+            <i class="fa-solid fa-vault"></i>
+            <h1>My Vault</h1>
+        </article>
+
+        <section class="vault-base">
+
+            <div class="vault-sidebar">
+                <div class="clear-vault">
+                    <button class="clearAll"><i class="fa-solid fa-square-xmark"></i><span>Clear Button</span></button>
+                </div>
             </div>
-        </div>
-    </section>
+
+            <div class="vault-items">
+                <div class="item-info">
+                    <div class="image-cont">
+                        <img src="/images/frieren/frieren-v1.png">
+                    </div>
+                    <div class="text-cont">
+                        <h3 class="item-title">Frieren: Beyond Journey's End</h3>
+                        <p class="item-volume">Volume 1</p>
+                    </div>
+                    <button class="rmvbtn">Remove</button>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
 </body>
 </html>
