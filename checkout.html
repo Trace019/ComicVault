@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/489c5b8ea3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            Comic Vault
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="homepage.html" id="active" class="navbar-link">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="vault.html" class="navbar-link">
+                    <span class="link-text">Wishlist</span>
+                </a>
+            </li>
+            <li>
+                <a href="browse.html" class="navbar-link">
+                    <span class="link-text">Browse</span>
+                </a>
+            </li>
+        </ul>
+        <div class="icons">
+            <a href="#home" class="navbar-link">
+                    <i class="fa-solid fa-gear"></i>
+            </a>
+            <a href="cart.html" class="navbar-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="#home" class="navbar-link">
+                    <i class="fa-solid fa-circle-user"></i>
+            </a>
+        </div>
+    </nav>
+<main class="base-checkout">
+    <div class="checkout-column">
+        <div class="itemList">
+            <div class="list">
+                <p>Listed Items:</p>
+                <div class="checkoutItem-detail">
+                    <div class="checkoutItem-image">
+                        <img src="/images/frieren/frieren-v1.png">
+                    </div>
+                    <div class="checkoutItem-name">
+                        <span>Frieren: Beyond Journeys End</span>
+                        <div class="item-sections">
+                            <div class="item-volume">
+                                <span>Volume 1</span>
+                            </div>
+                            <div class="item-language">
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkoutItem-price">
+                        <span>P599</span>
+                    </div>
+                </div>
+
+                <div class="checkoutItem-detail">
+                    <div class="checkoutItem-image">
+                        <img src="/images/frieren/frieren-v14.png">
+                    </div>
+                    <div class="checkoutItem-name">
+                        <span>Frieren: Beyond Journeys End</span>
+                        <div class="item-sections">
+                            <div class="item-volume">
+                                <span>Volume 14</span>
+                            </div>
+                            <div class="item-language">
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkoutItem-price">
+                        <span>P599</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <h2>Payment List</h2>
+            <div class="payment-input-group">
+                <label for="name">Name: </label><br>
+                <div class="input-with-icon">
+                    <input type="text" id="name" name="name" required>
+                    <i class="fa-solid fa-circle-user"></i>
+                </div>
+            </div>
+            
+            <div class="payment-input-group">
+                <label for="phone">Contact Info: </label><br>
+                <div class="input-with-icon">
+                    <input type="text" id="phone" name="phone" required>
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+            </div>
+
+            <div class="payment-input-group">
+                <label for="address">Address: </label><br>
+                <div class="input-with-icon">
+                    <input type="text" id="address" name="address" required>
+                    <i class="fa-solid fa-map"></i>
+                </div>
+            </div>
+
+            <div class="total-list">
+                <div class="all-prices">
+                    <div class="row">
+                        <div class="quantity">Total Items: </div>
+                        <div class="totalQuantity">1</div>
+                    </div>
+                    <div class="row">
+                        <div class="price">Total Price: </div>
+                        <div class="totalPrice">P100</div>
+                    </div>
+                    <div class="row">
+                        <div class="fee">Delivery Fee: </div>
+                        <div class="totalFee">P50</div>
+                    </div>
+                    <div class="row">
+                        <div class="grandprice">Grand Total: </div>
+                        <div class="totalGrandPrice">P50</div>
+                    </div>
+                </div>
+                
+                <button class="btn-receipt" onclick="toReceipt()">Confirm Purchase</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <script src="homepage.js" defer></script>
+    <script src="product.js" defer></script>
+</body>
+</html>

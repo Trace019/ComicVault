@@ -180,6 +180,7 @@ function addToCart(productData, volNum, language) {
     }
 
     sessionStorage.setItem("cart", JSON.stringify(cart));
+    // * Alert msgs
     showToast(`${productData.name} Vol ${volNum} (${language}) added to cart!`);
 }
 
@@ -376,11 +377,19 @@ function displayCart() {
 
 
 // =========================
-// ! RETURN TO HOMEPAGE
+// ! RETURN TO PAGES
 // =========================
 
 function backToRecent() {
     window.location.href = "homepage.html"
+}
+
+function toCheckout() {
+    if((JSON.parse(sessionStorage.getItem("cart")) || []).length === 0){
+        showToast("The cart is empty");
+    } else {
+        window.location.href = "checkout.html"
+    }
 }
 
 document.querySelector(".clearAll").addEventListener("click", () =>{
