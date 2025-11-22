@@ -98,7 +98,7 @@
 
 .btn-cart {
     padding: .9rem 4.2rem;
-    background-color: var(--button-color);
+    background-color: var(--alt-button-color);
     border: none;
     font-size: 1rem;
     color: var(--alt-text-color);

@@ -301,7 +301,6 @@ function displayCart() {
     return;
   }
 
-  // Fetch product info for images and price
   fetch("jsonfiles/product.json")
     .then(response => response.json())
     .then(products => {
@@ -346,7 +345,7 @@ function displayCart() {
       subtotalElem.textContent = `₱${subtotal}`;
       grandTotalElem.textContent = `₱${subtotal + deliveryFee}`;
 
-      // Handle removal
+      // removesle item in le cat
       document.querySelectorAll(".remove-btn").forEach(btn => {
         btn.addEventListener("click", e => {
           const index = e.currentTarget.dataset.index;
@@ -416,3 +415,4 @@ function showToast(message) {
         setTimeout(() => toast.remove(), 300);
     }, 2000);
 }
+

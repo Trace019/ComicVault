@@ -132,15 +132,18 @@
 
 .total-list .btn-receipt {
     border: none;
-    outline: 3px solid transparent;
+    outline: 3px solid;
+    outline-color: transparent;
     background-color: var(--button-color);
     padding: .5rem 2rem;
     margin-top: 1rem;
     transition: all .1s ease-in-out;
+    font-weight: 700;
     &:hover {
         background-color: var(--highlight-color);
         color: var(--text-color);
         outline-color: var(--accent);
-        font-weight: 700;
     }
 }
+
+/* - Browse.html

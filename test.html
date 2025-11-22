@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Auto-Fill Input</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 2rem;
+    }
+
+    .field-box {
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+    }
+
+    input {
+        padding: .6rem .9rem;
+        font-size: 1rem;
+        border-radius: .4rem;
+        border: 1px solid #aaa;
+    }
+
+    button {
+        padding: .6rem;
+        border: none;
+        background: #e74c3c;
+        color: white;
+        border-radius: .4rem;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<!-- <div class="field-box">
+    <input type="text" id="autoInput" placeholder="Type something…" />
+
+    <button id="clearInput">Clear Saved Value</button>
+</div>
+
+<script>
+    const input = document.getElementById("autoInput");
+    const clearBtn = document.getElementById("clearInput");
+    const KEY = "autoInputValue";
+
+    // Load saved value on page load
+    document.addEventListener("DOMContentLoaded", () => {
+        const saved = localStorage.getItem(KEY);
+        if (saved) input.value = saved;
+    });
+
+    // Save on typing
+    input.addEventListener("input", () => {
+        localStorage.setItem(KEY, input.value);
+    });
+
+    // Clear button
+    clearBtn.addEventListener("click", () => {
+        input.value = "";
+        localStorage.removeItem(KEY);
+    });
+</script> -->
+
+
+<input type="text" id="inputA" placeholder="Type something…">
+
+<input type="text" id="inputB" placeholder="Auto fill…" readonly>
+
+
+<script>
+const KEY = "address";
+
+document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem(KEY);
+    if (saved) document.getElementById("inputA").value = saved;
+});
+
+document.getElementById("inputA").addEventListener("input", () => {
+    localStorage.setItem(KEY, inputA.value);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem(KEY);
+    if (saved) document.getElementById("inputB").value = saved;
+});
+</script>
+
+</body>
+</html>
+

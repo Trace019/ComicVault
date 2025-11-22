@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/489c5b8ea3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="cart.css">
+
+    <script src="homepage.js" defer></script>
+    <script src="product.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="browse.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            Comic Vault
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="homepage.html" class="navbar-link">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="vault.html" class="navbar-link">
+                    <span class="link-text">Wishlist</span>
+                </a>
+            </li>
+            <li>
+                <a href="browse.html" class="navbar-link" id="active">
+                    <span class="link-text">Browse</span>
+                </a>
+            </li>
+        </ul>
+        <div class="icons">
+            <a href="settings.html" class="navbar-link">
+                    <i class="fa-solid fa-gear"></i>
+            </a>
+            <a href="cart.html" class="navbar-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="account.html" class="navbar-link">
+                    <i class="fa-solid fa-circle-user"></i>
+            </a>
+        </div>
+    </nav>
+    <section class="browse-header">
+        <input type="search" id="searchBar" placeholder="Search">
+        <article class="bottom-header">
+            <select id="tagFilter">
+                <option value="">All Genres</option>
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Fantasy"> Fantasy</option>
+                <option value="Drama">Drama</option>
+                <option value="Romance">Romance</option>
+                <option value="Slice Of Life">Slice Of Life</option>
+                <option value="Sports">Sports</option>
+                <option value="School Life">School Life</option>
+            </select>
+        
+            <select id="sortFilter">
+                <option value="">Sort</option>
+                <option value="name">Name (A-Z)</option>
+                <option value="rating">Rating</option>
+            </select>
+        </article>
+    </section>
+
+    <section id="browseGrid" class="browse-grid">
+
+        <!-- <div class="manga-card">
+            <img src="/images/frieren/frieren-v14.png" alt="cover">
+            <div class="card-header">
+                <h3 class="manga-title">Frieren: Journey Beyond End</h3>
+                <p class="mangaka">Kanehito Yamada</p>
+                <div class="tags">
+                        <p class="indv-tag">Fantasy</p>
+                        <p class="indv-tag">Action</p>
+                        <p class="indv-tag">•</p>
+                </div>
+                <div class="card-subheader">
+                        <p><i class="fa-solid fa-star"></i> 5.00</p>
+                        <p>Vol 14</p>
+                </div>
+                <button class="view-button">View Now</button>
+            </div>
+        </div> -->
+    </section>
+    
+</body>
+</html>

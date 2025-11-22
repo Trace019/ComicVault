@@ -10,10 +10,18 @@ Volkhov
 Outfit
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* Current Themes:  */
+* {
+    --nav-text-color: #fff;
+    --redirect-color: #fff;
+}
+
 :root {
     --background-color: #0b0a0c;
     --secondary-color: #2b2b2b;
-    --border-color: #424242;
+    --border-color: #cba7a7;
     --text-color: #e7e5e5;
     --alt-text-color: #0c0c0e;
     --accent: #c12120;
@@ -21,21 +29,56 @@ Outfit
     --highlight-color2: #ffa357;
     --card-color: #161519;
     --button-color: #e4e4e4;
+    --alt-button-color: #ffffff;
 }
-/*
-.light-theme {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --link-color: #1a0dab;
-  --button-background: #f0f0f0;
-  --button-text-color: #000000;
-}
-*/
 
+body.theme-ender {
+    --background-color: #0c0017;
+    --secondary-color: #1c0322;
+    --border-color: #c7b2c8;
+    --text-color: #e7e5e5;
+    --alt-text-color: #0c0c0e;
+    --accent: #8f00ff;
+    --highlight-color: #b666d2;
+    --highlight-color2: #ff57f4;
+    --card-color: #0c061e;
+    --button-color: #e4e4e4;
+    --alt-button-color: #ffffff;
+}
+body.theme-bio {
+    --background-color: #eff4ee;
+    --secondary-color: #cacaca;
+    --border-color: #7d8f80;
+    --text-color: #000000;
+    --alt-text-color: #ffffff;
+    --accent: #6ed16e;
+    --highlight-color2: #c54747;
+    --highlight-color: #6f9031;
+    --card-color: #e7fde8;
+    --button-color: #c9c9c9;
+    --alt-button-color: #011601;
+}
+
+body.theme-pastel {
+    --background-color: #dee7ed;
+    --secondary-color: #c1cbd4;
+    --border-color: #C4D5E0;
+    --text-color: #000000;
+    --alt-text-color: #ffffff;
+    --accent: #807DDB;
+    --highlight-color2: #E7D27C;
+    --highlight-color: #8cbdc8;
+    --card-color: #ebeafd;
+    --button-color: #c9c9c9;
+    --alt-button-color: #011601;
+}
+
+
+/* CSS: */
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -43,7 +86,6 @@ body {
 .navbar {
     background-color: var(--accent);
     border-bottom: 1px solid var(--border-color);
-    color: var(--text-color);
     display: flex;
     justify-content: space-between;
     position: sticky;
@@ -60,6 +102,7 @@ body {
     margin-right: 0;
     font-family: "Limelight", cursive;
     font-size: 1.5rem;
+    color: var(--nav-text-color);
 }
 
 .nav-list {
@@ -74,7 +117,7 @@ body {
 }
 
 .nav-list li a {
-    color: var(--text-color);
+    color: var(--nav-text-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -99,7 +142,7 @@ body {
 }
 
 .icons a {
-    color: var(--text-color);
+    color: var(--nav-text-color);
     font-size: 1.5rem;
     text-decoration: none;
     margin: 0;
@@ -239,7 +282,6 @@ body {
     margin: 0;
     margin-top: .5rem;
 }
-
 .card-header {
     flex: 1;
     display: flex;
@@ -252,6 +294,7 @@ body {
     text-align: left;
     font-size: 1.2rem;
     padding: 0 0;
+    color: var(--highlight-color);
 }
 
 .card-header .mangaka {
@@ -272,6 +315,7 @@ body {
     padding: 3px 6px;
     font-family: 'Fredoka';
     font-size: .65rem;
+    color: var(--alt-text-color);
 }
 
 .card-subheader {
@@ -284,7 +328,7 @@ body {
 .view-button {
     background-color: var(--highlight-color);
     border: none;
-    color: var(--text-color);
+    color: var(--alt-text-color);
     padding: 0.5rem 0;
     width: 100%;
     display: block;
@@ -334,4 +378,68 @@ body {
 .toast-message.show {
   opacity: 1;
   transform: translate(-50%, -50%);
+}
+
+/** setting.html */
+
+.setting-wrapper {
+    margin: 3.5rem;
+    border: red 2px solid;
+}
+.setting-option h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.setting-option select, option{
+    padding: .3rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+}
+.setting-option select:focus {
+    outline: none;
+}
+
+/*- browse.html*/
+
+.browse-header {
+    margin: .5rem;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.browse-header input {
+    width: 45rem;
+    height: 2.5rem;
+    border-radius: .5rem;
+    padding: .3rem;
+    &:hover {
+        outline: 3px solid var(--highlight-color2);
+    }
+}
+
+.browse-header input:focus {
+    outline: 3px solid var(--highlight-color2);
+}
+
+.browse-header .bottom-header {
+    display: flex;
+    gap: .5rem;
+    border: none;
+}
+
+.browse-header .bottom-header select, option {
+    border-radius: .5rem;
+    padding: .3rem;
+    background-color: var(--highlight-color);
+}
+
+.browse-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem;
 }
