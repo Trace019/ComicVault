@@ -65,27 +65,48 @@
 </script> -->
 
 
-<input type="text" id="inputA" placeholder="Type something…">
+<input type="text" id="address" placeholder="Address…">
+<input type="text" id="contact" placeholder="Contact Number…">
 
-<input type="text" id="inputB" placeholder="Auto fill…" readonly>
+<input type="text" id="showAddress" placeholder="Saved address" readonly>
+<input type="text" id="showContact" placeholder="Saved contact" readonly>
+
 
 
 <script>
-const KEY = "address";
+const KEY = "userData"; // store everything here
 
 document.addEventListener("DOMContentLoaded", () => {
-    const saved = localStorage.getItem(KEY);
-    if (saved) document.getElementById("inputA").value = saved;
+    // Load existing data
+    const saved = JSON.parse(localStorage.getItem(KEY)) || {};
+
+    if (saved.address) document.getElementById("address").value = saved.address;
+    if (saved.contact) document.getElementById("contact").value = saved.contact;
+
+    if (saved.address) document.getElementById("showAddress").value = saved.address;
+    if (saved.contact) document.getElementById("showContact").value = saved.contact;
 });
 
-document.getElementById("inputA").addEventListener("input", () => {
-    localStorage.setItem(KEY, inputA.value);
+// Save whenever the user types
+["address", "contact"].forEach(field => {
+    document.getElementById(field).addEventListener("input", () => {
+        const saved = JSON.parse(localStorage.getItem(KEY)) || {};
+
+        saved[field] = document.getElementById(field).value;
+
+        localStorage.setItem(KEY, JSON.stringify(saved));
+
+        // update readonly fields
+        document.getElementById("show" + capitalize(field)).value =
+            document.getElementById(field).value;
+    });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const saved = localStorage.getItem(KEY);
-    if (saved) document.getElementById("inputB").value = saved;
-});
+// helper
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 </script>
 
 </body>

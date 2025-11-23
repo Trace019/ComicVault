@@ -49,15 +49,28 @@
     </nav>
     <section class="setting-wrapper">
         <article class="setting-option">
-            <h2>Settings</h2>
-            <label for="themeSelect">Theme: </label>
-            <select id="themeSelect">
-                <option value="">Crimson Forest</option>
-                <option value="ender">Ender Zero</option>
-                <option value="bio">BioForest</option>
-                <option value="pastel">Pastel Crystal</option>
-            </select>
+            <div class="theme-selector">
+                <h2 class="setting-title">Settings</h2>
+                <h2 for="themeSelect" class="setting-tab">Theme: </h2>
+                <select id="themeSelect">
+                    <option value="">Crimson Forest</option>
+                    <option value="ender">Ender Zero</option>
+                    <option value="bio">BioForest</option>
+                    <option value="pastel">Pastel Crystal</option>
+                </select>
+            </div>
+            <div class="autofill-wrapper">
+                <h2 class="setting-tab">Personal  Info</h2>
+                <div class="autofill-inputs">
+                    <label for="phone">Contact Info: </label>
+                    <input type="text" id="phone-autoA" name="phone" placeholder="Contact Info" min="1" maxlength="12">
+
+                    <label for="address">Address: </label>
+                    <input type="text" id="address-autoA" name="address" placeholder="Address">
+                </div>
+            </div>
         </article>
+        
     </section>
     </body>
 </html>

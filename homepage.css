@@ -385,22 +385,74 @@ body {
 .setting-wrapper {
     margin: 3.5rem;
     border: red 2px solid;
+    display: flex;
+    justify-content: center;;
+    text-align: center;
 }
-.setting-option h2 {
+.setting-option .setting-title {
+    font-size: 2.5rem;
+}
+
+.setting-option .setting-tab {
     font-size: 1.25rem;
     font-weight: bold;
+    border-top: 2px solid var(--border-color);
+    width: 40rem;
+    padding: 1rem 0;
 }
 .setting-option select, option{
-    padding: .3rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
     font-weight: 700;
     border: 2px solid transparent;
     background-color: var(--highlight-color);
     color: var(--text-color);
 }
+
+.setting-option select {
+    display: flex;
+    margin: 0 auto;
+}
+
 .setting-option select:focus {
     outline: none;
 }
 
+.autofill-wrapper {
+    display: block;
+    margin-top: .4rem;
+}
+
+.autofill-wrapper .autofill-inputs {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 25rem;
+    gap: .4rem;
+    margin: 0 auto;
+}
+
+.autofill-wrapper .autofill-inputs label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--highlight-color2);
+}
+
+.autofill-wrapper .autofill-inputs input {
+    padding: .5rem 1rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    outline: 4px solid transparent;
+}
+
+.autofill-inputs input:focus {
+    border: none;
+    outline: 4px solid var(--highlight-color);
+}
+/* 
+.autofill-wrapper .autofill-inputs label, input {
+    margin: 0 auto;
+} */
 /*- browse.html*/
 
 .browse-header {
