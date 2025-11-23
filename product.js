@@ -7,7 +7,8 @@ const productDetailPage = document.querySelector(".product-detail");
 const cartPage = document.querySelector(".cart-container");
 const vaultPage = document.querySelector(".vault-layout");
 
-// so it displays when a specific class is loaded
+const checkoutPage = document.querySelector(".base-checkout");
+
 if (productContainer) {
     displayProducts();
 } else if (productDetailPage) {
@@ -16,7 +17,10 @@ if (productContainer) {
     displayCart();
 } else if (vaultPage) {
     displayVault();
+} else if (checkoutPage) {
+    displayCheckout();
 }
+
 
 
 // =========================
@@ -159,7 +163,7 @@ function displayProductsDetail() {
 // =========================
 
 function addToCart(productData, volNum, language) {
-    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const existingItem = cart.find(item =>
         String(item.id) === String(productData.id) &&
@@ -179,7 +183,7 @@ function addToCart(productData, volNum, language) {
         });
     }
 
-    sessionStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     // * Alert msgs
     showToast(`${productData.name} Vol ${volNum} (${language}) added to cart!`);
 }
@@ -287,90 +291,180 @@ function removeFromVault(id, volNum) {
 // =========================
 
 function displayCart() {
-  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-  const cartItems = document.querySelector(".cart-items");
-  const subtotalElem = document.querySelector(".subtotal");
-  const grandTotalElem = document.querySelector(".grand-total");
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItems = document.querySelector(".cart-items");
+    const subtotalElem = document.querySelector(".subtotal");
+    const grandTotalElem = document.querySelector(".grand-total");
 
-  cartItems.innerHTML = "";
+    cartItems.innerHTML = "";
 
-  if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Your cart is empty.</p>";
-    subtotalElem.textContent = "₱0";
-    grandTotalElem.textContent = "₱0";
-    return;
-  }
+    if (cart.length === 0) {
+        cartItems.innerHTML = "<p>Your cart is empty.</p>";
+        console.log("Cart is empty.");
+        subtotalElem.textContent = "₱0";
+        grandTotalElem.textContent = "₱0";
+        return;
+    }
 
-  fetch("jsonfiles/product.json")
-    .then(response => response.json())
+    fetch("jsonfiles/product.json")
+        .then(response => response.json())
+        .then(products => {
+        let subtotal = 0;
+
+        cart.forEach((item, index) => {
+            const product = products.find(p => String(p.id) === String(item.id));
+            if (!product) {
+                console.warn('Oy, ' + item + ' isnt found on product list');
+                return;
+            };
+
+            // const volumeData = product.volume.find(v => String(v.volNum) === String(item.volNum));
+            const volumeData = product.volume ? 
+            product.volume.find(v => String(v.volNum) === String(item.volNum)) : null;
+
+            const image = volumeData ? volumeData.image : "images/placeholder.png";
+            const price = Number(product.price) || 0;
+            const totalPrice = price * (item.quantity || 1);
+            subtotal += totalPrice;
+
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+            cartItem.innerHTML = `
+            <div class="product">
+                <img src="${image}" alt="${product.name}">
+                <div class="item-data">
+                <p>${product.name}</p>
+                <div class="language-volnum-box">
+                    <span class="lang">${item.language}</span>
+                    <span class="volno">Volume ${item.volNum}</span>
+                </div>
+                </div>
+            </div>
+            <span class="price">₱${price}</span>
+            <div class="quantity">
+                <input type="number" value="${item.quantity}" min="1" data-index="${index}">
+            </div>
+            <span class="total-price">₱${totalPrice}</span>
+            <button class="remove-btn" data-index="${index}">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            `;
+            cartItems.appendChild(cartItem);
+        });
+
+        const deliveryFee = 50;
+        subtotalElem.textContent = `₱${subtotal}`;
+        grandTotalElem.textContent = `₱${subtotal + deliveryFee}`;
+
+        //# removesle item in le cat
+        document.querySelectorAll(".remove-btn").forEach(btn => {
+            btn.addEventListener("click", e => {
+            const index = e.currentTarget.dataset.index;
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            displayCart();
+            });
+        });
+
+        //- Handle quantity changes
+        document.querySelectorAll(".quantity input").forEach(input => {
+            input.addEventListener("input", e => {
+            const index = e.currentTarget.dataset.index;
+            const newQty = parseInt(e.currentTarget.value);
+            if (newQty > 0) {
+                cart[index].quantity = newQty;
+                localStorage.setItem("cart", JSON.stringify(cart));
+                displayCart();
+            }
+            });
+        });
+        })
+    .catch(err => {
+    console.error("Error loading product data:", err);
+    cartItems.innerHTML = "<p>Error loading cart data.</p>";
+    });
+}
+
+// =========================
+// ? CHECKOUT PAGE
+// =========================
+function displayCheckout() {
+    const checkoutItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const checkoutContainer = document.querySelector(".list");
+
+    if (!checkoutContainer) return; // safety
+
+    checkoutContainer.innerHTML = "";
+
+    if (checkoutItems.length === 0) {
+        checkoutContainer.innerHTML = "<p>Your cart is empty.</p>";
+        document.querySelector(".totalQuantity").textContent = "0";
+        document.querySelector(".totalPrice").textContent = "₱0";
+        document.querySelector(".totalFee").textContent = "₱50";
+        document.querySelector(".totalGrandPrice").textContent = "₱50";
+        return;
+    }
+
+    // Fetch product data to link images & prices
+    fetch("jsonfiles/product.json")
+    .then(res => res.json())
     .then(products => {
-      let subtotal = 0;
 
-      cart.forEach((item, index) => {
+    let totalItems = 0;
+    let totalPrice = 0;
+
+    checkoutItems.forEach(item => {
         const product = products.find(p => String(p.id) === String(item.id));
         if (!product) return;
 
-        const volumeData = product.volume.find(v => String(v.volNum) === String(item.volNum));
-        const image = volumeData ? volumeData.image : "images/placeholder.png";
+        const volData = product.volume.find(v => String(v.volNum) === String(item.volNum));
+        const image = volData ? volData.image : "images/placeholder.png";
         const price = product.price || 0;
-        const totalPrice = price * item.quantity;
-        subtotal += totalPrice;
+        const total = price * item.quantity;
 
-        const cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
-        cartItem.innerHTML = `
-          <div class="product">
-            <img src="${image}" alt="${product.name}">
-            <div class="item-data">
-              <p>${product.name}</p>
-              <div class="language-volnum-box">
-                <span class="lang">${item.language}</span>
-                <span class="volno">Volume ${item.volNum}</span>
-              </div>
+        totalItems += item.quantity;
+        totalPrice += total;
+
+        const card = document.createElement("div");
+        card.classList.add("checkoutItem-detail");
+
+        card.innerHTML = `
+            <div class="checkoutItem-image">
+                <img src="${image}">
             </div>
-          </div>
-          <span class="price">₱${price}</span>
-          <div class="quantity">
-            <input type="number" value="${item.quantity}" min="1" data-index="${index}">
-          </div>
-          <span class="total-price">₱${totalPrice}</span>
-          <button class="remove-btn" data-index="${index}">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
+
+            <div class="checkoutItem-name">
+                <span>${product.name}</span>
+                <div class="item-sections">
+                    <div class="item-volume">
+                        <span>Volume ${item.volNum}</span>
+                    </div>
+                    <div class="item-language">
+                        <span>${item.language}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkoutItem-qty">
+                <span>${item.quantity}</span>
+            </div>
+
+            <div class="checkoutItem-price">
+                <span>₱${price}</span>
+            </div>
         `;
-        cartItems.appendChild(cartItem);
-      });
 
-      const deliveryFee = 50;
-      subtotalElem.textContent = `₱${subtotal}`;
-      grandTotalElem.textContent = `₱${subtotal + deliveryFee}`;
 
-      // removesle item in le cat
-      document.querySelectorAll(".remove-btn").forEach(btn => {
-        btn.addEventListener("click", e => {
-          const index = e.currentTarget.dataset.index;
-          cart.splice(index, 1);
-          sessionStorage.setItem("cart", JSON.stringify(cart));
-          displayCart();
+        checkoutContainer.appendChild(card);
         });
-      });
 
-      // Handle quantity changes
-      document.querySelectorAll(".quantity input").forEach(input => {
-        input.addEventListener("input", e => {
-          const index = e.currentTarget.dataset.index;
-          const newQty = parseInt(e.currentTarget.value);
-          if (newQty > 0) {
-            cart[index].quantity = newQty;
-            sessionStorage.setItem("cart", JSON.stringify(cart));
-            displayCart();
-          }
-        });
-      });
-    })
-    .catch(err => {
-      console.error("Error loading product data:", err);
-      cartItems.innerHTML = "<p>Error loading cart data.</p>";
+        const deliveryFee = 50;
+
+        // Update checkout totals
+        document.querySelector(".totalQuantity").textContent = totalItems;
+        document.querySelector(".totalPrice").textContent = `₱${totalPrice}`;
+        document.querySelector(".totalFee").textContent = `₱${deliveryFee}`;
+        document.querySelector(".totalGrandPrice").textContent = `₱${totalPrice + deliveryFee}`;
     });
 }
 
@@ -384,7 +478,7 @@ function backToRecent() {
 }
 
 function toCheckout() {
-    if((JSON.parse(sessionStorage.getItem("cart")) || []).length === 0){
+    if((JSON.parse(localStorage.getItem("cart")) || []).length === 0){
         showToast("The cart is empty");
     } else {
         window.location.href = "checkout.html"

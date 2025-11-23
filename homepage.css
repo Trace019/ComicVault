@@ -30,6 +30,7 @@ Outfit
     --card-color: #161519;
     --button-color: #e4e4e4;
     --alt-button-color: #ffffff;
+    --panel-color: #222;
 }
 
 body.theme-ender {
@@ -44,6 +45,7 @@ body.theme-ender {
     --card-color: #0c061e;
     --button-color: #e4e4e4;
     --alt-button-color: #ffffff;
+    --panel-color: #222;
 }
 body.theme-bio {
     --background-color: #eff4ee;
@@ -57,20 +59,22 @@ body.theme-bio {
     --card-color: #e7fde8;
     --button-color: #c9c9c9;
     --alt-button-color: #011601;
+    --panel-color: #88a388;
 }
 
 body.theme-pastel {
     --background-color: #dee7ed;
-    --secondary-color: #c1cbd4;
+    --secondary-color: #9cbbdc;
     --border-color: #C4D5E0;
     --text-color: #000000;
     --alt-text-color: #ffffff;
-    --accent: #807DDB;
-    --highlight-color2: #E7D27C;
-    --highlight-color: #8cbdc8;
+    --accent: #8d89ec;
+    --highlight-color2: #f1d873;
+    --highlight-color: #60a1af;
     --card-color: #ebeafd;
     --button-color: #c9c9c9;
     --alt-button-color: #011601;
+    --panel-color: #707d8c;
 }
 
 
@@ -308,6 +312,7 @@ body {
 .tags {
     display: flex;
     gap: 5px;
+    flex-wrap: wrap;
 }
 
 .tags .indv-tag {
@@ -316,6 +321,7 @@ body {
     font-family: 'Fredoka';
     font-size: .65rem;
     color: var(--alt-text-color);
+    margin-bottom: -10px;
 }
 
 .card-subheader {

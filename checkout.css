@@ -2,9 +2,10 @@
     display: grid;
     grid-template-columns: 30rem 1fr;
     grid-template-areas: "infoList paymentList";
-    height: 100vh;
-    gap: .5rem;
+    gap: 1rem;
     padding: 1rem;
+    max-width: 60rem;
+    margin: 0 auto;
 }
 
 .base-checkout .checkout-column .itemList {
@@ -19,6 +20,9 @@
 .itemList .list {
     display: grid;
     gap: .5rem;
+    max-height: 75vh;
+    overflow-y: auto;
+    padding-right: .2rem;
 
     p {
         font-size: 1.5rem;
@@ -26,12 +30,26 @@
     }
 }
 
+.list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 4px;
+}
+
+.list::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
 .itemList .list .checkoutItem-detail {
-    background: var(--panel-bg, #222);
+    background: var(--panel-color);
     border-radius: .75rem;
     padding: 1rem;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr 5rem 5rem;
     gap: 1rem;
     align-items: center;
     justify-items: center;
@@ -46,6 +64,7 @@
         flex-direction: column;
         justify-content: center;
         height: 100%;
+        color: var(--text-color);
         
         span {
             font-weight: 600;
@@ -65,6 +84,7 @@
         text-align: center;
         padding: .2rem .4rem;
         border-radius: .35rem;
+        color: var(--text-color);
     }
 
     .checkoutItem-name .item-sections .item-language {
@@ -73,6 +93,7 @@
         text-align: center;
         padding: .15rem .22rem;
         border-radius: .35rem;
+        color: var(--text-color);
     }
 
     .checkoutItem-price {
@@ -80,22 +101,31 @@
         font-size: 1.1rem;
         text-align: right;
         align-self: center;
+        color: var(--text-color);
+    }
+    .checkoutItem-qty {
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-align: right;
+        align-self: center;
+        color: var(--text-color);
     }
 }
 
 .base-checkout .checkout-column .payment-section {
     grid-area: paymentList;
-    background: var(--main-bg, #333);
-    color: white;
+    background: var(--panel-color);
+    color: var(--text-color);
     border-radius: 0.5rem;
     padding: 1rem;
-    overflow-y: auto;
+    max-height: 28rem;
+    max-width: 32rem;
 }
 
 .payment-section .payment-input-group {
     label, i {
         font-weight: 700;
-        color: var(--highlight-color);
+        color: var(--highlight-color2);
     }
     input {
         width: 15rem;

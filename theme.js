@@ -1,3 +1,9 @@
+// ! Logo Redirect
+
+document.querySelector(".logo").addEventListener("click", () => {
+  window.location.href = "homepage.html";
+});
+
 // ! Current Theme
 const themeValue = ["ender", "bio", "pastel"];
 
@@ -49,7 +55,7 @@ function setupAutoSave() {
     });
 }
 
-// - autoFill for address/phone-autoa and B on checkout.html
+// * autoFill for address/phone-autoa and B on checkout.html
 function setupAutoFill() {
     const savedData = JSON.parse(localStorage.getItem(autoSync)) || {};
     const inputs = document.querySelectorAll("input[id$='-autoA']" );
