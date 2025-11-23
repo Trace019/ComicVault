@@ -163,6 +163,108 @@
                 "language": ["English", "Japanese"]
             }
         ]
+    },    
+    {
+        "id": 7,
+        "name": "There Was a Cute Girl in the Hero's Party, so I Tried Confessing to Her",
+        "price": 299,
+        "author": "Suisei & Kairi",
+        "sypnosis": "Youki was reincarnated in another world. However, instead of being reincarnated as the hero or the demon lord, he was instead reincarnated half-assedly as a minion of the Demon Lord. One day, the Hero's Party attacked the Demon Lord's castle with the intent of defeating the Demon Lord. Of course, Youki was able to repel their attempt with ease. In spite of this, he ended up falling for the cleric, Cecilia, at first sight...",
+        "tag01": "Reincarnation",
+        "tag02": "Romance",
+        "tag03": ".",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/yuusha-party/yuusha-party-v1.png",
+                "language": ["Japanese"]
+            },
+            {
+                "volNum": 2,
+                "image": "images/yuusha-party/yuusha-party-v2.png",
+                "language": ["Japanese"]
+            }
+        ]
+    },    
+    {
+        "id": 8,
+        "name": "Hope You’re Happy, Lemon",
+        "price": 399,
+        "author": "Kishikawa Mizuki",
+        "sypnosis": "Back in middle school, Akiyoshi Sunao's first-ever girlfriend shattered his heart, and he swore off love. However, all that changes when he develops a crush on a girl in his university's film club. Just as he's finally beginning to move on from the past, he bumps into his ex-girlfriend. Little does he know that this is only the beginning... To his horror, he wakes up in her body the next morning!",
+        "tag01": "Genderswap",
+        "tag02": "Slice of Life",
+        "tag03": "Romance",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/happylemon/happylemon-v1.png",
+                "language": ["Japanese"]
+            },
+            {
+                "volNum": 2,
+                "image": "images/happylemon/happylemon-v2.png",
+                "language": ["Japanese"]
+            },
+            {
+                "volNum": 8,
+                "image": "images/happylemon/happylemon-v8.png",
+                "language": ["Japanese"]
+            }
+        ]
+    },    
+    {
+        "id": 9,
+        "name": "Umamusume: Cinderella Gray",
+        "price": 399,
+        "author": "Itou Junnousuke & Sugiura Masafumi",
+        "sypnosis": "Umamusume: Cinderella Gray is a spin-off title of the Uma Musume project by Cygames. It follows Oguri Cap through her time at Kasamatsu Training Center Academy and on her journey of becoming a legendary horse girl.",
+        "tag01": "Sports",
+        "tag02": "Action",
+        "tag03": "Drama",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/oguricap/oguricap-v1.png",
+                "language": ["Japanese"]
+            },
+            {
+                "volNum": 2,
+                "image": "images/oguricap/oguricap-v2.png",
+                "language": ["Japanese"]
+            },
+            {
+                "volNum": 3,
+                "image": "images/oguricap/oguricap-v3.png",
+                "language": ["Japanese"]
+            },
+            {
+                "volNum": 21,
+                "image": "images/oguricap/oguricap-v21.png",
+                "language": ["Japanese"]
+            }
+        ]
+    },    
+    {
+        "id": 10,
+        "name": "Sakamoto Days",
+        "price": 599,
+        "author": "Suzuki Yuuto",
+        "sypnosis": "Taro Sakamoto was the ultimate assassin, feared by villains and admired by hitmen. But one day... he fell in love! Retirement, marriage, fatherhood and then... Sakamoto gained weight! The chubby guy who runs the neighborhood store is actually a former legendary hitman! Can he protect his family from danger?",
+        "tag01": "Action",
+        "tag02": "Supernatural",
+        "tag03": ".",
+        "rating": 5.00,
+        "volume": [
+            {
+                "volNum": 1,
+                "image": "images/sakamoto/sakamoto-v1.png",
+                "language": ["English", "Japanese"]
+            }
+        ]
     }
 
 ]
