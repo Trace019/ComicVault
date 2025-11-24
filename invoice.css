@@ -1,0 +1,110 @@
+:root {
+    --background-color: #0b0a0c;
+    --secondary-color: #2b2b2b;
+    --border-color: #cba7a7;
+    --text-color: #e7e5e5;
+    --alt-text-color: #0c0c0e;
+    --accent: #c12120;
+    --highlight-color: #ff7057;
+    --highlight-color2: #ffa357;
+    --card-color: #161519;
+    --button-color: #e4e4e4;
+    --alt-button-color: #ffffff;
+    --panel-color: #222;
+    --invoice-panel: #dfd9d9;
+}
+
+.printed-receipt {
+    background-color: var(--invoice-panel);
+    color: var(--alt-text-color);
+    margin: 3rem auto;
+    border-radius: 1rem;
+    max-width: 75%;
+    padding-bottom: 2.5rem;
+}
+
+.invoice-content .header {
+    background-color: var(--accent);
+    color: var(--text-color);
+    padding: 2rem 1rem;
+    display: block;
+    display: grid;
+    grid-template-columns: 1fr 6rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.header-left .invoice {
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+
+.header-right i {
+    font-size: 5rem;
+    color: var(--text-color);
+}
+
+.bill-info {
+    padding: 2rem;
+    display: grid;
+    grid-template-areas: "billed issued";
+    color: var(--text-color);
+}
+
+.billed-info {
+    grid-area: billed;
+    text-align: left;
+}
+
+.issued-on {
+    grid-area: issued;
+    text-align: right;
+}
+
+.receipt-table {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.receipt-table .invoice-topbar,
+.invoice-items .invoice-content {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.receipt-table .invoice-topbar {
+    background-color: var(--accent);
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 700;
+}
+
+.invoice-items .invoice-content {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.receipt-table .invoice-topbar span,
+.invoice-items .invoice-content span {
+    display: block;
+    width: 100%;
+}
+
+.invoice-items .invoice-content span {
+    align-self: center;
+    color: var(--text-color);
+}
+
+.invoice-total .invoice-subtotal, .invoice-deliveryFee, .invoice-grandtotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 .5rem;
+    background-color: var(--accent);
+    color: var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+}

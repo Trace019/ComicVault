@@ -31,6 +31,7 @@ Outfit
     --button-color: #e4e4e4;
     --alt-button-color: #ffffff;
     --panel-color: #222;
+    --invoice-panel: #dfd9d9;
 }
 
 body.theme-ender {
@@ -46,6 +47,7 @@ body.theme-ender {
     --button-color: #e4e4e4;
     --alt-button-color: #ffffff;
     --panel-color: #222;
+    --invoice-panel: #dfd9d9;
 }
 body.theme-bio {
     --background-color: #eff4ee;
@@ -60,6 +62,7 @@ body.theme-bio {
     --button-color: #c9c9c9;
     --alt-button-color: #011601;
     --panel-color: #88a388;
+    --invoice-panel: #ebebea;
 }
 
 body.theme-pastel {
@@ -75,6 +78,7 @@ body.theme-pastel {
     --button-color: #c9c9c9;
     --alt-button-color: #011601;
     --panel-color: #707d8c;
+    --invoice-panel: #d8dade;
 }
 
 

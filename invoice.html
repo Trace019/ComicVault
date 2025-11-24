@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/489c5b8ea3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="invoice.css">
+    
+    <script src="homepage.js" defer></script>
+    <script src="product.js" defer></script>
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            Comic Vault
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="homepage.html" class="navbar-link">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="vault.html" class="navbar-link">
+                    <span class="link-text">Wishlist</span>
+                </a>
+            </li>
+            <li>
+                <a href="browse.html" class="navbar-link">
+                    <span class="link-text">Browse</span>
+                </a>
+            </li>
+        </ul>
+        <div class="icons">
+            <a href="settings.html" class="navbar-link">
+                    <i class="fa-solid fa-gear"></i>
+            </a>
+            <a href="cart.html" class="navbar-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="account.html" class="navbar-link">
+                    <i class="fa-solid fa-circle-user"></i>
+            </a>
+        </div>
+    </nav>
+    <section class="printed-receipt">
+        <article class="invoice-content">
+            <div class="header">
+                <div class="header-left">
+                    <span class="invoice">Invoice</span><br>
+                    <span class="company-name">ComicVault Inc.</span>
+                </div>
+                <div class="header-right">
+                    <i class="fa-solid fa-file-contract"></i>
+                </div>
+            </div>
+
+            <div class="bill-info">
+                <div class="billed-to">
+                    <h3>Billed To:</h3>
+                    <p>Name:</p> 
+                    <p>Email:</p>
+                    <p>Contact Info:</p>
+                    <p>Address:</p>   
+                </div>
+                <div class="issued-on">
+                    <h3>Issued On:</h3>
+                    <p>Invoice ID</p> 
+                    <p>Date</p> 
+                </div>
+            </div>
+            <div class="receipt-table">
+                <div class="invoice-topbar">
+                    <span>Name</span>
+                    <span>Volume</span>
+                    <span>Language</span>
+                    <span>Price</span>
+                    <span>Quantity</span>
+                    <span>Amount</span>
+                </div>
+
+                <div class="invoice-items">
+                    <div class="invoice-content">
+                        <span>Frieren: Journey's Beyond</span>
+                        <span>2</span>
+                        <span>English</span>
+                        <span>599</span>
+                        <span>1</span>
+                        <span>1</span>
+                    </div>
+
+                    <div class="invoice-content">
+                        <span>There Was a Cute Girl in the Hero's Party, so I Tried Confessing to Her</span>
+                        <span>2</span>
+                        <span>English</span>
+                        <span>599</span>
+                        <span>1</span>
+                        <span>1</span>
+                    </div>
+                </div>
+
+                <div class="invoice-total">
+                    <div class="invoice-subtotal">
+                        <p>Subtotal:</p>
+                        <p>599</p>
+                    </div>
+                    <div class="invoice invoice-deliveryFee">
+                        <p>Delivery Fee:</p>
+                        <p>50</p>
+                    </div>
+                    <div class="invoice invoice-grandtotal">
+                        <p>Grand Total:</p>
+                        <p>50</p>
+                    </div>
+                </div>
+                    
+            </div>
+        </article>
+    </section>
+    </body>
+</html>

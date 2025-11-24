@@ -493,6 +493,13 @@ document.querySelector(".clearAll").addEventListener("click", () =>{
     if (vaultedItems) vaultedItems.innerHTML = "<p>Your vault is empty.</p>";
 });
 
+function toReceipt() {
+    showToast("Your Order is now processing...");
+    setTimeout(() => {    
+        window.location.href = "invoice.html"
+    }, 2000)
+}
+
 // =========================
 // ! CUSTOM ALERT MESSAGE
 // =========================
