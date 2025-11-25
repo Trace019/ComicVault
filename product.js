@@ -405,7 +405,6 @@ function displayCheckout() {
         return;
     }
 
-    // Fetch product data to link images & prices
     fetch("jsonfiles/product.json")
     .then(res => res.json())
     .then(products => {
@@ -460,7 +459,6 @@ function displayCheckout() {
 
         const deliveryFee = 50;
 
-        // Update checkout totals
         document.querySelector(".totalQuantity").textContent = totalItems;
         document.querySelector(".totalPrice").textContent = `₱${totalPrice}`;
         document.querySelector(".totalFee").textContent = `₱${deliveryFee}`;
@@ -468,6 +466,288 @@ function displayCheckout() {
     });
 }
 
+// =========================
+// - ORDER & INVOICE SYSTEM
+// =========================
+
+let productData = [];
+
+async function loadProductData() {
+    if (productData.length > 0) return productData;
+
+    try {
+        const response = await fetch("jsonfiles/product.json");
+        productData = await response.json();
+        return productData;
+    } catch (error) {
+        console.log("Error loading product data:", error);
+        return [];
+    }
+}
+
+function submitOrder() {
+    const name = document.getElementById("name").value;
+    const contactInfo = document.getElementById("phone-autoB").value;
+    const address = document.getElementById("address-autoB").value;
+    const payment = document.getElementById("payment").value;
+
+    if (!name || !contactInfo || !address || !payment || payment === "N/A") {
+        showToast("Please fill in all the required fields...");
+        return false;
+    }
+    const orderID = "ORD-" + Date.now();
+    const orderInfo = {
+        orderID,
+        customerInfo: {
+            name,
+            contact: contactInfo,
+            address,
+            payment
+        },
+        date: new Date().toLocaleDateString(),
+        timestamp: new Date().toISOString(),
+        cart: JSON.parse(localStorage.getItem("cart")) || [],
+        status: "processing"
+    };
+
+    saveOrderToStorage(orderInfo);
+    localStorage.setItem("cart", JSON.stringify([]));
+    setTimeout(() => {
+        window.location.href = `invoice.html?order=${orderID}`;
+    }, 500);
+    return true;
+}
+
+function saveOrderToStorage(orderInfo) {
+    let allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
+
+    // Remove duplicates with same ID
+    allOrders = allOrders.filter(o => o.orderID !== orderInfo.orderID);
+
+    allOrders.push(orderInfo);
+
+    // newest first
+    allOrders.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+    localStorage.setItem("allOrders", JSON.stringify(allOrders));
+}
+
+function getOrderFromStorage(orderID) {
+    const allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
+    return allOrders.find(o => o.orderID === orderID);
+}
+function toReceipt() {
+    if ((JSON.parse(localStorage.getItem("cart")) || []).length === 0) {
+        showToast("The cart is empty");
+        return;
+    }
+
+    if (submitOrder()) {
+        showToast("Your Order is now processing...");
+    }
+}
+
+// =========================
+// ! GENERATE INVOICE PAGE
+// =========================
+
+async function generateInvoice() {
+
+    const params = new URLSearchParams(window.location.search);
+    const orderID = params.get("order");
+
+    if (!orderID) {
+        window.location.href = "orders.html";
+        return;
+    }
+
+    const orderData = getOrderFromStorage(orderID);
+
+    if (!orderData) {
+        document.body.innerHTML = `<h2>Order Not Found</h2>`;
+        return;
+    }
+
+    document.getElementById("invoice-name").textContent =
+        "Name: " + orderData.customerInfo.name;
+
+    // document.getElementById("invoice-email").textContent =
+    //     "Email: " + orderData.customerEmail.email;
+
+    document.getElementById("invoice-contact").textContent =
+        orderData.customerInfo.contact;
+
+    document.getElementById("invoice-address").textContent =
+        orderData.customerInfo.address;
+
+    document.getElementById("invoice-id").textContent =
+        orderData.orderID;
+
+    document.getElementById("invoice-date").textContent =
+        orderData.date;
+
+    const products = await loadProductData();
+
+    const invoiceContainer = document.querySelector(".invoice-items");
+    invoiceContainer.innerHTML = "";
+
+    let subtotal = 0;
+
+    orderData.cart.forEach(item => {
+        const product = products.find(p => String(p.id) === String(item.id));
+        if (!product) return;
+
+        const price = Number(product.price);
+        const total = price * item.quantity;
+        subtotal += total;
+
+        const div = document.createElement("div");
+        div.classList.add("invoice-content");
+
+        div.innerHTML = `
+            <span>${product.name}</span>
+            <span>${item.volNum}</span>
+            <span>${item.language}</span>
+            <span>₱${price}</span>
+            <span>${item.quantity}</span>
+            <span>₱${total}</span>
+        `;
+
+        invoiceContainer.appendChild(div);
+    });
+
+    const delivery = 50;
+    const grand = subtotal + delivery;
+
+    document.querySelector(".invoice-subtotal p:last-child").textContent = "₱" + subtotal;
+    document.querySelector(".invoice-deliveryFee p:last-child").textContent = "₱" + delivery;
+    document.querySelector(".invoice-grandtotal p:last-child").textContent = "₱" + grand;
+
+    sessionStorage.setItem(
+        "currentInvoiceData",
+        JSON.stringify({ orderData, products, subtotal, grand })
+    );
+}
+
+// =============================
+//  PDF DOWNLOAD
+// =============================
+async function downloadPDF() {
+    const invoiceSection = document.querySelector(".printed-receipt");
+
+    if (!invoiceSection) {
+        showToast("Invoice section not found.");
+        return;
+    }
+
+    // Turn the invoice HTML into a canvas
+    const canvas = await html2canvas(invoiceSection, {
+        scale: 2,
+        useCORS: true,
+        logging: false
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jspdf.jsPDF("p", "pt", "a4");
+
+    // Fit invoice inside PDF
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save(`invoice-${Date.now()}.pdf`);
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadOrders();
+});
+
+let productCache = null;
+
+async function loadProductData() {
+if (productCache) return productCache;
+
+try {
+    const response = await fetch("jsonfiles/product.json");
+    productCache = await response.json();
+    return productCache;
+} catch (error) {
+    console.error("Error loading product data:", error);
+    return [];
+}
+}
+
+function getAllOrders() {
+return JSON.parse(localStorage.getItem("allOrders")) || [];
+}
+
+async function calculateOrderTotal(order) {
+    const products = await loadProductData();
+    return order.cart.reduce((sum, item) => {
+        const product = products.find(p => String(p.id) === String(item.id));
+        if (!product) return sum;
+        return sum + (Number(product.price) * (item.quantity || 1));
+    }, 0);
+}
+
+async function loadOrders() {
+    const orders = getAllOrders();
+    const ordersList = document.getElementById('orders-list');
+    const noOrders = document.getElementById('no-orders');
+
+    if (!ordersList || !noOrders) return;
+
+    if (orders.length === 0) {
+        ordersList.style.display = 'none';
+        noOrders.style.display = 'block';
+        return;
+    }
+
+    ordersList.style.display = 'block';
+    noOrders.style.display = 'none';
+    ordersList.innerHTML = '';
+
+    for (const order of orders) {
+        const orderTotal = await calculateOrderTotal(order);
+        const orderElement = document.createElement('div');
+        orderElement.className = 'order-card';
+        orderElement.innerHTML = `
+            <div class="order-header">
+                <h3>Order: ${order.orderID}</h3>
+                <span class="order-status ${order.status}">${order.status}</span>
+            </div>
+            <div class="order-details">
+                <p><strong>Date:</strong> ${order.date}</p>
+                <p><strong>Items:</strong> ${order.cart.reduce((sum, item) => sum + (item.quantity || 1), 0)} item(s)</p>
+                <p><strong>Total:</strong> ₱${orderTotal}</p>
+                <p><strong>Payment:</strong> ${order.customerInfo.payment}</p>
+            </div>
+            <div class="order-actions">
+                <button onclick="viewInvoice('${order.orderID}')" class="view-invoice-btn">
+                    View Invoice
+                </button>
+                <button onclick="deleteInvoice('${order.orderID}')" class="delete-invoice-btn">
+                    Delete Order
+                </button>
+            </div>
+        `;
+        ordersList.appendChild(orderElement);
+    }
+}
+
+function viewInvoice(orderID) {
+    window.location.href = `invoice.html?order=${orderID}`;
+}
+
+function deleteInvoice(orderID) {
+    if (!orderID) return;
+
+    let allOrders = getAllOrders();
+    allOrders = allOrders.filter(order => order.orderID !== orderID);
+    localStorage.setItem("allOrders", JSON.stringify(allOrders));
+    loadOrders();
+    showToast(`Invoice has been deleted.`);
+}
 
 // =========================
 // ! RETURN TO PAGES
@@ -492,13 +772,6 @@ document.querySelector(".clearAll").addEventListener("click", () =>{
     const vaultedItems = document.querySelector(".vault-items");
     if (vaultedItems) vaultedItems.innerHTML = "<p>Your vault is empty.</p>";
 });
-
-function toReceipt() {
-    showToast("Your Order is now processing...");
-    setTimeout(() => {    
-        window.location.href = "invoice.html"
-    }, 2000)
-}
 
 // =========================
 // ! CUSTOM ALERT MESSAGE

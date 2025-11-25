@@ -118,7 +118,7 @@
     color: var(--text-color);
     border-radius: 0.5rem;
     padding: 1rem;
-    max-height: 28rem;
+    max-height: 30rem;
     max-width: 32rem;
 }
 
@@ -127,7 +127,7 @@
         font-weight: 700;
         color: var(--highlight-color2);
     }
-    input {
+    input, select {
         width: 15rem;
         padding: .2rem;
         margin: .4rem;

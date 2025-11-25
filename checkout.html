@@ -32,6 +32,11 @@
                     <span class="link-text">Browse</span>
                 </a>
             </li>
+            <li>
+                <a href="orders.html" class="navbar-link" >
+                    <span class="link-text">Orders</span>
+                </a>
+            </li>
         </ul>
         <div class="icons">
             <a href="settings.html" class="navbar-link">
@@ -96,6 +101,17 @@
                 <div class="input-with-icon">
                     <input type="text" id="address-autoB" name="address" required>
                     <i class="fa-solid fa-map"></i>
+                </div>
+            </div>
+
+            <div class="payment-input-group">
+                <label for="address">Payment Method: </label><br>
+                <div class="input-with-icon">
+                    <select id="payment" name="payment">
+                        <option>N/A</option>
+                        <option value="Cash On Delivery">Cash On Delivery</option>
+                    </select>
+                    <i class="fa-solid fa-money-bill"></i>
                 </div>
             </div>
 

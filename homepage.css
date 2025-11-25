@@ -32,6 +32,7 @@ Outfit
     --alt-button-color: #ffffff;
     --panel-color: #222;
     --invoice-panel: #dfd9d9;
+    --invoice-text: #111111;
 }
 
 body.theme-ender {
@@ -48,6 +49,7 @@ body.theme-ender {
     --alt-button-color: #ffffff;
     --panel-color: #222;
     --invoice-panel: #dfd9d9;
+    --invoice-text: #0c0a0c;
 }
 body.theme-bio {
     --background-color: #eff4ee;
@@ -63,6 +65,7 @@ body.theme-bio {
     --alt-button-color: #011601;
     --panel-color: #88a388;
     --invoice-panel: #ebebea;
+    --invoice-text: #111111;
 }
 
 body.theme-pastel {
@@ -79,6 +82,7 @@ body.theme-pastel {
     --alt-button-color: #011601;
     --panel-color: #707d8c;
     --invoice-panel: #d8dade;
+    --invoice-text: #111111;
 }
 
 
@@ -133,11 +137,12 @@ body {
 .navbar-link {
     display: block;
     margin: 0;
+    transition: .15s ease-in-out;
 }
 
 .navbar-link:hover {
-    transition: .15s ease-out;
     color: var(--highlight-color);
+    transform: translateY(-2px);
 }
 
 .icons {

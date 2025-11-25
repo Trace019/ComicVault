@@ -12,6 +12,7 @@
     --alt-button-color: #ffffff;
     --panel-color: #222;
     --invoice-panel: #dfd9d9;
+    --invoice-text: #111111;
 }
 
 .printed-receipt {
@@ -47,17 +48,15 @@
 .bill-info {
     padding: 2rem;
     display: grid;
-    grid-template-areas: "billed issued";
-    color: var(--text-color);
+    grid-template-columns: 1fr 1fr;
+    color: var(--invoice-text);
 }
 
 .billed-info {
-    grid-area: billed;
     text-align: left;
 }
 
 .issued-on {
-    grid-area: issued;
     text-align: right;
 }
 
@@ -96,7 +95,9 @@
 
 .invoice-items .invoice-content span {
     align-self: center;
-    color: var(--text-color);
+    color: var(--invoice-text);
+    padding: 0.5rem 0.25rem;
+    word-wrap: break-word;
 }
 
 .invoice-total .invoice-subtotal, .invoice-deliveryFee, .invoice-grandtotal {
@@ -108,3 +109,88 @@
     font-size: 1.25rem;
     font-weight: 700;
 }
+/*@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+
+.receipt-table {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.invoice-items .invoice-content {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.invoice-actions {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.download-btn, .home-btn, .orders-btn, .delete-invoice-btn {
+    padding: 1rem 1.25rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.download-btn {
+    background-color: var(--panel-color);
+    color: var(--text-color);
+}
+
+.download-btn:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(-2px);
+    color: var(--alt-text-color);
+}
+
+.home-btn {
+    background-color: var(--panel-color);
+    color: var(--text-color);
+}
+
+.home-btn:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(2px);
+    color: var(--alt-text-color);
+}
+
+.orders-btn {
+    background-color: var(--panel-color);
+    color: var(--text-color);
+}
+
+.orders-btn:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(-2px);
+    color: var(--alt-text-color);
+}
+
+.delete-invoice-btn {
+    background-color: var(--panel-color);
+    color: var(--text-color);
+}
+
+.delete-invoice-btn:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(-2px);
+    color: var(--alt-text-color);
+}
+

@@ -35,6 +35,11 @@
                     <span class="link-text">Browse</span>
                 </a>
             </li>
+            <li>
+                <a href="orders.html" class="navbar-link" id="active">
+                    <span class="link-text">Orders</span>
+                </a>
+            </li>
         </ul>
         <div class="icons">
             <a href="settings.html" class="navbar-link">
@@ -63,15 +68,15 @@
             <div class="bill-info">
                 <div class="billed-to">
                     <h3>Billed To:</h3>
-                    <p>Name:</p> 
-                    <p>Email:</p>
-                    <p>Contact Info:</p>
-                    <p>Address:</p>   
+                    <p id="invoice-name">Name:</p> 
+                    <p id="invoice-email">Email:</p>
+                    <p id="invoice-contact">Contact Info:</p>
+                    <p id="invoice-address">Address:</p>
                 </div>
                 <div class="issued-on">
                     <h3>Issued On:</h3>
-                    <p>Invoice ID</p> 
-                    <p>Date</p> 
+                    <p id="invoice-id">Invoice ID</p> 
+                    <p id="invoice-date">Date</p> 
                 </div>
             </div>
             <div class="receipt-table">
@@ -84,43 +89,64 @@
                     <span>Amount</span>
                 </div>
 
-                <div class="invoice-items">
-                    <div class="invoice-content">
-                        <span>Frieren: Journey's Beyond</span>
-                        <span>2</span>
-                        <span>English</span>
-                        <span>599</span>
-                        <span>1</span>
-                        <span>1</span>
-                    </div>
-
-                    <div class="invoice-content">
+                <div class="invoice-items" id="invoice-items-container">
+                    <!-- <div class="invoice-content">
                         <span>There Was a Cute Girl in the Hero's Party, so I Tried Confessing to Her</span>
                         <span>2</span>
                         <span>English</span>
                         <span>599</span>
                         <span>1</span>
                         <span>1</span>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="invoice-total">
                     <div class="invoice-subtotal">
                         <p>Subtotal:</p>
-                        <p>599</p>
+                        <p>₱0</p>
                     </div>
                     <div class="invoice invoice-deliveryFee">
                         <p>Delivery Fee:</p>
-                        <p>50</p>
+                        <p>₱50</p>
                     </div>
                     <div class="invoice invoice-grandtotal">
                         <p>Grand Total:</p>
-                        <p>50</p>
+                        <p>₱50</p>
                     </div>
                 </div>
-                    
+            </div>
+
+            <div class="invoice-actions">
+                <button onclick="downloadPDF()" class="download-btn">
+                    <i class="fa-solid fa-download"></i>
+                </button>
+                <button onclick="backToHome()" class="home-btn">
+                    <i class="fa-solid fa-home"></i>
+                </button>
+                <button onclick="viewAllOrders()" class="orders-btn">
+                    <i class="fa-solid fa-list"></i>
+                </button>
+                <!-- <button onclick="deleteInvoice('${order.orderID}')" class="delete-invoice-btn">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button> -->
             </div>
         </article>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            generateInvoice();
+        });
+
+        function backToHome() {
+            window.location.href = "homepage.html";
+        }
+
+        function viewAllOrders() {
+            window.location.href = "orders.html";
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     </body>
 </html>
