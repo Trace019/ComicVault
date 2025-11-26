@@ -74,7 +74,6 @@
     font-size: 0.75rem;
 }
 
-
 .cart-item :is(.price, .quantity, .total-price) {
     flex: 1;
     text-align: center;

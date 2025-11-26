@@ -84,7 +84,6 @@ body {
     transform: translateY(-50%);
     font-size: 1.2rem;
     color: var(--accent);
-    pointer-events: none;
 }
 
 .logsign-content .remember-forgot {
@@ -111,7 +110,7 @@ body {
     color: var(--highlight-color);
 }
 
-.logbtn {
+.logbtn, .signinbtn {
     width: 100%;
     height: 50px;
     background-color: var(--button-color);

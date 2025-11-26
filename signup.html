@@ -12,6 +12,7 @@
     <script src="homepage.js" defer></script>
     <script src="product.js" defer></script>
     <script src="theme.js" defer></script>
+    <script type="module" src="firebase.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -73,12 +74,8 @@
                 <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
                 <i class='fa-solid fa-lock' id="showPass2"></i>
             </div>
-            <div class="password-match-feedback">
-                <span class="match-icon">✗</span>
-                <span class="match-text">Passwords don't match</span>
-            </div>
             
-            <button type="submit" class="logbtn" id="loginbtn">Sign Up</button>
+            <button type="submit" class="signinbtn" id="signinbtn">Sign Up</button>
 
             <div class="reglink">
                 <p>Have an accoun? <a href="login.html">Login.</a></p>

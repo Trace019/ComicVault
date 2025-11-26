@@ -375,6 +375,7 @@ body {
     
 }
 
+/*@ toast */
 .toast-message {
   position: fixed;
   top: 50%;
