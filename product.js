@@ -790,3 +790,16 @@ function showToast(message) {
     }, 2000);
 }
 
+function showToastCheck(message) {
+    const toast = document.createElement("div");
+    toast.textContent = message;
+    toast.className = "toast-message";
+    document.body.appendChild(toast);
+
+    setTimeout(() => toast.classList.add("show"), 50);
+    setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+    }, 2000);
+}
+
