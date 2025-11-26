@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/489c5b8ea3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="logsign.css">
     <script src="homepage.js" defer></script>
     <script src="product.js" defer></script>
     <script src="theme.js" defer></script>
@@ -47,52 +48,40 @@
             <a href="cart.html" class="navbar-link">
                     <i class="fa-solid fa-cart-shopping"></i>
             </a>
-            <a href="account.html" class="navbar-link" id="active-icon">
+            <a href="account.html" class="navbar-link">
                     <i class="fa-solid fa-circle-user"></i>
             </a>
         </div>
     </nav>
-
-    <section class="account-wrapper">
-        <div class="profile-content">
-
-                <div class="profile-header">
-                    <img src="images/decals/profile.jpg" alt="Profile Picture" class="profile-picture">
-                    <h3 class="profile-user"><span id="userDisplay">John Doe</span></h3>
-                    
-                    <button class="logout-button" id="logout"><a href="index.html"><i class='bx bx-log-out'></i> Log Out</a></button>
-                </div>
-
-                <div class="profile-breakdown"></div>
-
-                <div class="profile-details">
-
-                    <p class="profile-email">
-                        <span class="dataType">Email</span> 
-                        <span id="emailDisplay">test10101010@gmail.com</span>
-                    </p>
-
-                    <p class="profile-phone">
-                        <span class="dataType">Phone</span>
-                        <span id="phoneDisplay">+00000000000</span>
-                    </p>
-                    
-                    <p class="profile-address">
-                        <span class="dataType">Address</span>
-                        <span id="addressDisplay">12a test address, city country</span>
-                    </p>
-
-                    <p class="profile-pass">
-                        <span class="dataType">Password</span>
-                        <span id="passwordDisplay">Null</span>
-                    </p>
-
-                    <p class="profile-creation-date">
-                        <span class="dataType">Creation Date</span>
-                        <span id="creationDisplay">1/1/2000</span>
-                    </p>
-                </div>
+    <section class="logsign-wrapper">
+        <article class="logsign-content">
+            <form>
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" id="email" required>
+                <i class="fa-solid fa-envelope"></i>
             </div>
+
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" id="password" required>
+                <i class='fa-solid fa-lock' id="showhidePass"></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox">Remember Me?</label>
+                </label>
+                <a href="#forgotpassword.html">Forgot Password?</a>
+            </div>
+            
+            <button type="submit" class="logbtn" id="loginbtn">Login</button>
+
+            <div class="reglink">
+                <p>Don't have an account yet? <a href="signup.html">Sign Up.</a></p>
+            </div>
+        </form>
+        </article>
+        
     </section>
     </body>
 </html>
